@@ -17,6 +17,7 @@ https://github.com/omoerbeek/e2pv
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
+ 
 /* Updates by Stuart Ashby <stuart@ashbysoft.com>:
  * 1/ Syslog event logging inspired by; https://gist.github.com/coderofsalvation/11325307
  * 2/ Remote alarm mod ; emits warning when panels stop generating or in error state:
