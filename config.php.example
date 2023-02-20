@@ -1,0 +1,88 @@
+<?php
+define('IDCOUNT', 20);
+define('APIKEY', 'xxxx');
+define('SYSTEMID', 'xxxx');
+
+define('LIFETIME', 1);       // see README.md
+define('MODE', 'AGGREGATE'); // 'AGGREGATE' or 'SPLIT'
+define('EXTENDED', 0);       // Send state data? Uses donation only feature
+// AC is default 0. See README.md
+define('AC', 0);             // Send DC data or AC (DC * Efficiency)
+define('DOMOMQTT', 1);		 // send to Domoticz via local MQTT
+
+// If mode is SPLIT, define the Enecsys ID to PVOutput SystemID mapping for each
+// inverter.
+//$systemid = array(
+//  NNNNNNNNN => NNNNNN,
+//  NNNNNNNNN => NNNNNN,
+//  ...
+//);
+
+// If mode is SPLIT, optionally define the Enecsys ID to APIKEY mappings
+// If an id is not found, the default APIKEY from above is used.
+//$apikey = array(
+// NNNNNNNNN => 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+// NNNNNNNNN => 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+//);
+
+// The following inverter ids are ignored (e.g. the neighbours' ones)
+$ignored = array(
+// NNNNNNNNN,
+// ...
+);
+
+// mapping of inverter ID to panel number for easier reading!
+// +100 identifies defunct/removed inverters
+$panels = array(
+ 100059214 => 1,
+ 100059559 => 2,
+ 100057855 => 3,
+ 100059144 => 4,
+ 100051846 => 5,
+ 100036089 => 105,
+ 100059558 => 6,
+ 100059049 => 7,
+ 100058826 => 8,
+ 100058884 => 9,
+ 100054805 => 10,
+ 100059497 => 11,
+ 100051258 => 12,
+ 100059417 => 113,
+ 100058304 => 13,
+ 100059583 => 14,
+ 100059138 => 15,
+ 100054809 => 16,
+ 100057444 => 17,
+ 100054852 => 18,
+ 100059051 => 119,
+ 100080929 => 119,
+ 100078226 => 19,
+ 100059038 => 120,
+ 100060324 => 20
+);
+
+
+// Optional MySQL defs, uncomment to enable MySQL inserts, see README.md
+//define('MYSQLHOST', 'localhost');
+//define('MYSQLUSER', 'myuser');
+//define('MYSQLPASSWORD', 'mypw');
+//define('MYSQLDB', 'mydbname');
+//define('MYSQLPORT', '3306');
+
+// Optional alarm cmd to execute on system for panels in abormal state
+// define('ALARM_CMD', 'ssh -i /volume1/Synology_RAID/Stuart/stu_priv_openssh ashbys@ashbysoft.com ./alarm.sh');
+
+// Optional feature to send alarms as panels turn off
+define('ALARM_ON_DROP', 1);
+
+// Optional feature to disable per inverter reporting to stdout
+define('VERBOSE', 0);
+
+// Optional server forward host:port - note do NOT use a constant, so we can change it at runtime
+$FWDHOSTPORT = '192.168.1.126:5041';
+
+// optional Domoticz IDX for updates
+define('DOMOIDXSOLAR', 2728); // domoticz IDX for the electricity generation meter device to update
+define('DOMOIDXPANELCNT', 2729); // domoticz IDX for the solar panel count device to update
+
+?>
