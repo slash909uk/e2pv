@@ -1,4 +1,5 @@
 # e2pv
+ARCHIVED repo moved to: https://codeberg.org/slash909uk/e2pv
 Enecsys solar inverter reporting gateway for Domoticz/MQTT and PVoutput.org, based on Otto's work here:
 https://github.com/omoerbeek/e2pv
 
